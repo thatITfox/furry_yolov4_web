@@ -100,7 +100,6 @@ def build_targets(pred_boxes, target, anchors, num_anchors, num_classes, nH, nW,
 
     return nGT, nCorrect, coord_mask, conf_mask, cls_mask, tx, ty, tw, th, tconf, tcls
 
-
 class RegionLoss(nn.Module):
     def __init__(self, num_classes=0, anchors=[], num_anchors=1):
         super(RegionLoss, self).__init__()
