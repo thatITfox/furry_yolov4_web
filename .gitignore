@@ -1,4 +1,3 @@
 venv
 yolov4-pytorch.pth
 static/results
-tool/__pycache__
