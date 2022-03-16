@@ -5,6 +5,9 @@ from tool.torch_utils import do_detect
 from flask import Flask, render_template, request, redirect, url_for
 import cv2
 import numpy as np
+import random
+import string
+
 
 def fitimginbrowser(img):
     h, w, _ = img.shape
@@ -31,7 +34,7 @@ def index():
         image = cv2.resize(og_image, (512, 512))
         boxes = do_detect(model_pt, image, 0.5, 0.4, use_cuda=False)
         print(boxes[0])
-        plot_boxes_cv2(fitimginbrowser(og_image), boxes[0], 'static/result.png', class_names=load_class_names('obj.names'))
+        plot_boxes_cv2(fitimginbrowser(og_image), boxes[0], 'static/results/result.png', class_names=load_class_names('obj.names'))
         return redirect(url_for('results'))
     return render_template('index.html')
 
