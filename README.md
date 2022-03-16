@@ -1,4 +1,4 @@
-# furry_yolov4_web
+# YOLO4-Fursuit-Detector
 
 This model will detect if it founds any furries or not
 
@@ -12,4 +12,4 @@ Requires Python 3, and install the required libraries for this project:
 pip install -r requirements.txt
 ```
 
-unzip `yolov4-pytorch.zip`then run `app.py`
+And then extract the contents from `yolov4-pytorch.zip` and run `app.py`
