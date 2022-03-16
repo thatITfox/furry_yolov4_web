@@ -1,4 +1,4 @@
-# furry_yolov4_web
+# YOLO4-Fursuit-Detector
 
 This model will detect if it founds any furries or not
 
