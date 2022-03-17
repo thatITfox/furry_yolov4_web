@@ -92,34 +92,6 @@ yolov4-container::before {
   margin: -4px;
 }
 
-.nav-button {
-  padding: 0.5rem 15%;
-  color: white;
-  background: rgba(255, 255, 255, 0.2);
-  transition: background 250ms ease;
-  border-radius: 5px 5px 0 0;
-}
-
-.nav-button:first-child:hover {
-  background: rgba(232, 128, 229, 0.2);
-}
-
-.nav-button:nth-child(2):hover {
-  background: rgba(77, 119, 246, 0.2);
-}
-
-.nav-button.active {
-  font-weight: 700;
-}
-
-.nav-button.active:first-child {
-  background: rgba(218, 112, 214, 0.4);
-}
-
-.nav-button.active:nth-child(2) {
-  background: rgba(65, 105, 225, 0.4);
-}
-
 form {
   background: rgb(255, 255, 255, 0.2);
   padding: 2ex;
