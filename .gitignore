@@ -1,3 +1,8 @@
+# Ignore IDE folders
+.vscode
+.idea
+
+# and some other stuff as well
 venv
 yolov4-pytorch.pth
 static/result.png
