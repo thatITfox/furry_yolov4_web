@@ -1,3 +1,4 @@
+from turtle import width
 from tool import darknet2pytorch
 import torch
 from tool.utils import load_class_names, plot_boxes_cv2
@@ -12,10 +13,10 @@ import os
 def fitimginbrowser(img):
     h, w, _ = img.shape
     if h >= w:
-        img = cv2.resize(img, (int(w*500/h), 500))
+        w, h = int(w*500/h), 500
     else:
-        img = cv2.resize(img, (500, int(h*500/w)))
-    return img
+        w, h = 500, int(h*500/w)
+    return w, h
 
 # load weights and model from pytorch format and the config from darknet
 model_pt = darknet2pytorch.Darknet('yolov4-obj.cfg', inference=True)
@@ -36,17 +37,18 @@ def index():
         image = cv2.resize(og_image, (512, 512))
         boxes = do_detect(model_pt, image, 0.5, 0.4, use_cuda=False)
         print(boxes[0])
-        plot_boxes_cv2(fitimginbrowser(og_image), boxes[0], f'static/{session}.png', class_names=load_class_names('obj.names'))
-        return redirect(f'/results/{session}')
+        plot_boxes_cv2(og_image, boxes[0], f'static/{session}.png', class_names=load_class_names('obj.names'))
+        return redirect(f'/results/{session}' )
     return render_template('index.html')
 
 @app.route('/results/<session>')
 def results(session):
-    return render_template('results.html', session=session)
+    width, height = fitimginbrowser(cv2.imread(f'static/{session}.png'))
+    return render_template('results.html', session=session, width=width, height=height)
 
 @app.route('/delete/<session>')
 def delete(session):
     os.remove(f'static/{session}.png')
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
