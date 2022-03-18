@@ -1,4 +1,3 @@
-from turtle import width
 from tool import darknet2pytorch
 import torch
 from tool.utils import load_class_names, plot_boxes_cv2
