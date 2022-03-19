@@ -31,23 +31,46 @@ def index():
         # generate a random string as the name of the image and as a session token
         session = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
         image = request.files['image']
-        image = np.asarray(bytearray(image.read()), dtype="uint8")
-        og_image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-        image = cv2.resize(og_image, (512, 512))
-        boxes = do_detect(model_pt, image, 0.5, 0.4, use_cuda=False)
-        print(boxes[0])
-        plot_boxes_cv2(og_image, boxes[0], f'static/{session}.png', class_names=load_class_names('obj.names'))
-        return redirect(f'/results/{session}' )
+        try:
+            image = np.asarray(bytearray(image.read()), dtype="uint8")
+            og_image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+            image = cv2.resize(og_image, (512, 512))
+            boxes = do_detect(model_pt, image, 0.5, 0.4, use_cuda=False)
+            print(boxes[0])
+            plot_boxes_cv2(og_image, boxes[0], f'static/{session}.png', class_names=load_class_names('obj.names'))
+            return redirect(f'/results/{session}' )
+        except Exception as e:
+            print(e)
+            return redirect(url_for('index'))
     return render_template('index.html')
 
 @app.route('/results/<session>')
 def results(session):
-    width, height = fitimginbrowser(cv2.imread(f'static/{session}.png'))
-    return render_template('results.html', session=session, width=width, height=height)
+    try:
+        width, height = fitimginbrowser(cv2.imread(f'static/{session}.png'))
+        return render_template('results.html', session=session, width=width, height=height)
+    except:
+        return redirect(url_for('index'))
 
 @app.route('/delete/<session>')
 def delete(session):
-    os.remove(f'static/{session}.png')
+    try:
+        os.remove(f'static/{session}.png')
+    except:
+        print(f'tried to remove {session}.png but it does not exist')
+
+@app.route('/deleteall/<key>')
+def deleteall(key):
+    with open('admin-key', 'r') as keyfile:
+        if keyfile.read() == key:
+            # delete all image file from static folder
+            for file in os.listdir('static'):
+                if file.endswith('.png'):
+                    os.remove(f'static/{file}')
+            return 'success'
+        else:
+            return 'Invalid key'
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
