@@ -22,11 +22,3 @@ class yolov4Container extends HTMLElement {
 }
 
 window.customElements.define('yolov4-container', yolov4Container);
-
-class yolov4ModelWarning extends HTMLElement {
-  constructor() {
-    super();
-  }
-}
-
-window.customElements.define('yolov4-model-warning', yolov4ModelWarning);
