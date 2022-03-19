@@ -5,21 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YOLOV4 Fursuit Detector</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <script defer src="static/js/script.js"></script>
+    <link rel="stylesheet" href="static/style.css">
+    <script defer src="static/script.js"></script>
 </head>
 <body>
   <main>
     <yolov4-header></yolov4-header>
     <yolov4-container id="forms">
-      <!-- create a form to upload images -->
       <p>Upload any image and see the results for yourself!</p>
         <form action="/" method="post" enctype="multipart/form-data">
           <input type="file" name="image">
           <input type="submit" value="Generate results" name="submit">
         </form>
-        <!-- this will append a warning text via reusable components in javascript -->
-        <yolov4-model-warning></yolov4-model-warning>
       </yolov4-container>
   </main>
 </body>

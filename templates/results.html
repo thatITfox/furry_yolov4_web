@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results - YOLOV4 Fursuit Detector</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <script defer src="/static/js/script.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <script defer src="/static/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/all.min.js"></script>
     <script>
       // Detects if the user is closing the window
@@ -26,7 +26,6 @@
         <h2>Here are the results!</h2>
         <p>If you wish, you may upload another photo and get a different result!</p>
         <img src="/static/{{session}}.png" width="{{width}}" height="{{height}}">
-        <yolov4-model-warning></yolov4-model-warning>
       </yolov4-container>
     </div>
   </main>
