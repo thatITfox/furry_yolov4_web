@@ -12,4 +12,4 @@ Requires Python 3, and install the required libraries for this project:
 pip install -r requirements.txt
 ```
 
-And then extract the contents from `yolov4-pytorch.zip` and run `app.py`
+And then extract the contents from `yolov4-pytorch.zip` to the root folder, and run `app.py`
