@@ -8,3 +8,4 @@ yolov4-pytorch.pth
 static/*.png
 static/*.jpg
 static/*.jpeg
+static/*.txt
