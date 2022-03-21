@@ -5,4 +5,6 @@
 # and some other stuff as well
 venv
 yolov4-pytorch.pth
-static/result.png
+static/*.png
+static/*.jpg
+static/*.jpeg
