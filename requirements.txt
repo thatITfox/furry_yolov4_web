@@ -1,3 +1,2 @@
 Flask
-torch
 opencv-python
