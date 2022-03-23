@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
 
 :root {
   --overlay: rgba(255,255,255,0.2);
@@ -73,7 +74,7 @@ a#upload-page-button:hover {
   text-shadow: 0 0 16px rgba(200,200,200,0.6);
 }
 
-yolov4-container {
+fsd-container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -89,7 +90,7 @@ yolov4-container {
   -webkit-background-clip: padding-box;
 }
 
-yolov4-container::before {
+fsd-container::before {
   content: '';
   border-radius: inherit;
   position: absolute;
@@ -109,12 +110,12 @@ input[type="submit"] {
   padding: 2px 5px;
 }
 
-yolov4-container#results {
+fsd-container#results {
   height: auto;
   padding-top: 2rem;
 }
 
-yolov4-container#results img {
+fsd-container#results img {
   border-radius: 9px;
   width: min(450px, 90%);
 }
