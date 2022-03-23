@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOLOV4 Fursuit Detector</title>
-    <link rel="stylesheet" href="static/style.css">
-    <script defer src="static/script.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLOV4 Fursuit Detector</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
   <main>
-    <yolov4-header></yolov4-header>
-    <yolov4-container id="forms">
+    <fsd-header></fsd-header>
+    <fsd-container id="forms">
       <p>Upload any image and see the results for yourself!</p>
         <form action="/" method="post" enctype="multipart/form-data">
           <input type="file" name="image">
           <input type="submit" value="Generate results" name="submit">
         </form>
-      </yolov4-container>
+      </fsd-container>
+      <fsd-footer></fsd-footer> 
   </main>
+  <script src="static/script.js"></script>
 </body>
 </html>

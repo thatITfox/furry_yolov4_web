@@ -1,4 +1,14 @@
 #!/bin/bash
+
+# WIP: Detects if Python/pip is installed in Linux systems
+# if ! command -v python &> /dev/null;
+# then
+#     echo Python does not exist, installing
+#     # sudo apt install python pip
+# else
+#     echo exists
+# fi
+
 # this script is used for debian based linux systems
 
 pip3 install -r requirements.txt
