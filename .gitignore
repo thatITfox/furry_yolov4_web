@@ -9,3 +9,4 @@ static/*.png
 static/*.jpg
 static/*.jpeg
 static/*.txt
+tool/__pycache__

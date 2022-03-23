@@ -5,19 +5,14 @@ import math
 import numpy as np
 
 import itertools
-import struct  # get_image_size
-import imghdr  # get_image_size
-
 
 def sigmoid(x):
     return 1.0 / (np.exp(-x) + 1.)
-
 
 def softmax(x):
     x = np.exp(x - np.expand_dims(np.max(x, axis=1), axis=1))
     x = x / np.expand_dims(x.sum(axis=1), axis=1)
     return x
-
 
 def bbox_iou(box1, box2, x1y1x2y2=True):
     
@@ -93,8 +88,6 @@ def nms_cpu(boxes, confs, nms_thresh=0.5, min_mode=False):
         order = order[inds + 1]
     
     return np.array(keep)
-
-
 
 def plot_boxes_cv2(img, boxes, savename=None, class_names=None, color=None):
     import cv2
